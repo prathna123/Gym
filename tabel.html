@@ -1,0 +1,86 @@
+<html>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.2.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#reserved-urls -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDD6UoCVC-3HQrtEfa-oyjlhT3JthTq1J4",
+    authDomain: "gymweb-fbd9d.firebaseapp.com",
+    databaseURL: "https://gymweb-fbd9d.firebaseio.com",
+    projectId: "gymweb-fbd9d",
+    storageBucket: "",
+    messagingSenderId: "219915104672",
+    appId: "1:219915104672:web:47d63b4ba8f41e77"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <body>
+    <center>
+
+      <!DOCTYPE html>
+<html>
+<body>
+
+<h2>Basic HTML Table</h2>
+
+<table style="width:70%;border:2px solid black;">
+
+  <tr >
+    <th style="border:2px solid black;">Name</th>
+    <th style="border:2px solid black;">Mail</th> 
+    <th style="border:2px solid black;">Message</th>
+    <th style="border:2px solid black;">Time</th>
+  </tr>
+<tbody id="table_body" style="style="border:2px solid black;">
+  </tbody>
+</table>
+
+
+
+</center>
+
+
+</body>
+<style>
+td{
+  border:1px solid black;
+}
+</style>
+<script>
+$(document).ready(function(){
+  var rootRef= firebase.database().ref().child("users");
+    rootRef.on("child_added",snap =>{
+          
+  var name= snap.child("name").val();
+  var email=snap.child("Email").val();
+var phone=snap.child("Message").val();
+var time=snap.child("Time").val();
+
+         
+        $("#table_body").append("<tr><td>" + name +"</td><td>" + email +"</td><td>" + phone +"</td><td>" + time + "</td></tr>"); 
+});
+
+
+
+
+
+
+});
+
+
+</script>
+</html>
