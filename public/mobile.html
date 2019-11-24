@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mobile verification</title>
+</head>
+<body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+<script src="/__/firebase/init.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDpJh8dVkR_Nk_5-ax81n21aU_S2GxWIR4",
+    authDomain: "myproject-9db7e.firebaseapp.com",
+    databaseURL: "https://myproject-9db7e.firebaseio.com",
+    projectId: "myproject-9db7e",
+    storageBucket: "myproject-9db7e.appspot.com",
+    messagingSenderId: "873977281521",
+    appId: "1:873977281521:web:101cfb4889999bc1"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<center>
+<div class="a" id="a">
+<input type="number" placeholder="Please enter your number" id="phone">
+<input type="submit" onclick="Myfun()">
+</div>
+<div class="b" id="b">
+	<input type="number" placeholder="enter your code" id="code">
+	<input type="submit" onclick="Myfuns()">
+</div>
+	</div>
+</center>
+</body>
+<style>
+	.a{
+		border:1px solid black;
+		width:300px;
+		height: 300px;
+		text-align: center;
+	}
+
+.b{
+	visibility: hidden;
+}
+</style>
+<script type="text/javascript">
+	
+function Myfun(){
+
+var a= document.getElementById("phone").value;
+if(a==""){
+	alert("Please enter your number");
+}
+
+else if (a==1){
+
+	alert("1");
+   
+}
+
+}
+function Myfuns() {
+
+var b= document.getElementById("code").value;
+if(b==""){
+	alert("Please enter your code");
+}
+	// body...
+}
+
+</script>
+</html>

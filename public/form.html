@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+ 
+
+<div class="needs-validation" novalidate name="bmiForm">
+
+  <div class="form-row">
+	<div class="col-md-6 mb-3">
+  <label for="validationCustom01">Your Weight(kg)</label>  <input type="text" class="form-control" id="validationCustom03" placeholder="Your weight" name="weight" required><br />
+ <div class="invalid-feedback">
+          Please enter your weight.
+        </div>
+    </div>
+     <div class="col-md-3 mb-3">
+  <label for="validationCustom01">Your Height(cm)</label>  <input type="text" class="form-control" name="height" id="validationCustom04" placeholder="Height" required>
+      <div class="invalid-feedback">
+        Please provide a valid state.
+      </div>
+    </div><br />
+  </div>
+<input type="button" value="Calculate BMI"   class="btn btn-primary"onClick="calculateBmi()"><br />
+  <label>Your BMI</label> <input type="text" name="bmi" class="form-control" size="10" id="bmi"><br />
+  <label>This Means</label> <input type="text" class="form-control" name="meaning" id= "meaning" size="25"><br />
+
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Desired weight(kg)</label>
+      <input type="text" class="form-control" id="validationCustom03" placeholder="Desired weight" required>
+      <div class="invalid-feedback">
+        Please enter your Desired weight.
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Email</label>
+      <input type="email" class="form-control" id="validationCustom03" placeholder="Enter mail" required>
+      <div class="invalid-feedback">
+        Please enter your Mail.
+      </div>
+    </div>
+  </div>
+   <div class="form-row">
+    
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">Phone</label>
+      <input type="number" class="form-control" id="validationCustom04" placeholder="Phone" required>
+      <div class="invalid-feedback">
+        Please provide a valid Phone.
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="form-group">
+ 
+  <button class="btn btn-primary" type="submit" onclick="Myfun()">Submit form</button>
+</div>
+</div>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+
+function Myfun(){
+
+var a=document.getElementById("bmi").value;
+var b= document.getElementById("meaning").value;
+if(a && b ==""){
+  alert("Please Calculate your Bmi");
+}
+
+}
+function calculateBmi() {
+var weight= document.getElementById("validationCustom03").value;
+var height=document.getElementById("validationCustom04").value;
+if(weight > 0 && height > 0){	
+var finalBmi = weight/(height/100*height/100)
+document.getElementById("bmi").value = finalBmi
+if(finalBmi < 18.5){
+document.getElementById("meaning").value = "That you are too thin."
+}
+if(finalBmi > 18.5 && finalBmi < 25){
+document.getElementById("meaning").value = "That you are healthy."
+}
+if(finalBmi > 25){
+document.getElementById("meaning").value = "That you have overweight."
+}
+}
+else{
+alert("Please Fill in everything correctly")
+}
+}
+</script>
+</body>
+<style type="text/css">
+	body{
+    background-image: url("formback.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+.needs-validation{
+	width: 500px;
+	margin-left: 80px;
+	border:1px solid black;
+	padding:2px;
+  background-color: black;
+}
+label{
+  color: white;
+}
+.btn{
+  margin-left: 200px;
+}
+.sr-only{
+  margin-left: 1000px;
+}
+</style>
+</html>

@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    #b {
+      visibility: hidden;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial;
+      font-size: 17px;
+      overflow-x: hidden;
+      background-color: black;
+
+
+    }
+
+
+    .btn-secondary {
+      margin-left: 900px;
+
+    }
+
+    #myVideo {
+      position: absolute;
+
+
+    }
+
+    .btn-danger {
+      margin-left: 10px;
+    }
+
+    .needs-validation {
+      width: 500px;
+      margin-left: 80px;
+      border: 1px solid black;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: black;
+      z-index: 99;
+      position: absolute;
+      opacity: 0.8;
+      visibility: hidden;
+
+    }
+
+    img {
+      float: left;
+    }
+
+    .btn-primary {
+      margin-left: 150px;
+    }
+
+    label {
+      color: white;
+      width: 200px;
+    }
+
+    .login {
+      margin-top: 150px;
+      width: 400px;
+      margin-left: 160px;
+      padding: 20px;
+    }
+
+    #q1 {
+      height: 300px;
+      width: 300px;
+      position: absolute;
+      z-index: 99;
+      margin-top: 80px;
+      margin-left: 40px;
+      opacity: 0.8;
+      animation-name: fade;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 3s;
+      animation-direction: alternate;
+
+    }
+
+    #q3 {
+      height: 300px;
+      width: 300px;
+      position: absolute;
+      z-index: 99;
+      margin-top: 80px;
+      margin-left: 40px;
+      opacity: 0.8;
+      float: left;
+      animation-name: fade;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 7s;
+      animation-direction: alternate;
+    }
+
+    #q4 {
+      height: 300px;
+      width: 300px;
+      position: absolute;
+      z-index: 99;
+      margin-top: 80px;
+      margin-left: 40px;
+      opacity: 0.6;
+      float: left;
+      animation-name: fade;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 5s;
+      animation-direction: alternate;
+    }
+
+    #q5 {
+      height: 300px;
+      width: 300px;
+      position: absolute;
+      z-index: 99;
+      margin-top: 80px;
+      margin-left: 40px;
+      opacity: 0.8;
+      animation-name: fade;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-duration: 3s;
+      animation-direction: alternate;
+    }
+
+    h1 {
+      color: red;
+      border-bottom: 1px solid white;
+      width: 30%;
+
+    }
+
+    h4 {
+      color: lime;
+      opacity: 0.7;
+    }
+
+    section {
+      position: relative;
+    }
+
+    section img {
+      position: absolute;
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 1;
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      75% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyDpJh8dVkR_Nk_5-ax81n21aU_S2GxWIR4",
+      authDomain: "myproject-9db7e.firebaseapp.com",
+      databaseURL: "https://myproject-9db7e.firebaseio.com",
+      projectId: "myproject-9db7e",
+      storageBucket: "myproject-9db7e.appspot.com",
+      messagingSenderId: "873977281521",
+      appId: "1:873977281521:web:101cfb4889999bc1"
+    };
+    firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+
+<body>
+  
+
+  <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+    <a class="fff" style="color:red;border:1px solid white;font-size: 30px">FIT & <span
+        style="color:white;font-size: 30px;"> FINE</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <button type="button" class="btn btn-secondary" onclick="Myfunss()">Login</button>
+
+        <button type="button" class="btn btn-danger" onclick="Myfuns()">Register</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="needs-validation login" novalidate name="bmiForm" id="forms">
+    <center>
+      <h1>Login</h1>
+      <h4>Unleash The beast in you Now!</h4>
+
+    </center>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationCustom03">Email</label>
+        <input type="email" class="form-control" id="emails" placeholder="Enter mail" required>
+        <div class="invalid-feedback">
+          Please enter your Mail.
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+
+      <div class="col-md-5 mb-5" id="a">
+        <label for="validationCustom04">Phone</label>
+        <input type="text" class="form-control" id="phones" placeholder="Phone" required>
+        <div class="invalid-feedback">
+          Please provide a valid Phone.
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" onclick="Admin()">Login</button>
+    </div>
+  </div>
+
+  <div class="needs-validation" novalidate name="bmiForm" id="div" >
+
+    <center>
+      <h1>Register</h1>
+      <h4>Register now for seeing the better you!</h4>
+    </center>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationCustom01">First Name</label> <input type="text" class="form-control" id="firstname"
+          placeholder="First Name" name="weight" required><br />
+        <div class="invalid-feedback">
+          Please enter your name.
+        </div>
+      </div>
+      <div class="col-md-6 mb-6">
+        <label for="validationCustom01">Last Name</label> <input type="text" class="form-control" name="lastname"
+          id="lastname" placeholder="Last Name" required>
+        <div class="invalid-feedback">
+          Please provide a valid state.
+        </div>
+      </div><br />
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationCustom01">Your Weight(kg)</label> <input type="text" class="form-control" id="weight"
+          placeholder="Your weight" name="weight" required><br />
+        <div class="invalid-feedback">
+          Please enter your weight.
+        </div>
+      </div>
+      <div class="col-md-6 mb-6">
+        <label for="validationCustom01">Your Height(cm)</label> <input type="text" class="form-control" name="height"
+          id="height" placeholder="Height" required>
+        <div class="invalid-feedback">
+          Please provide a valid state.
+        </div>
+      </div><br />
+    </div>
+    <input type="button" value="Calculate BMI" class="btn btn-primary" onClick="calculateBmi()"><br />
+    <label>Your BMI</label> <input type="text" name="bmi" class="form-control" size="10" id="bmi"><br />
+    <label>This Means</label> <input type="text" class="form-control" name="meaning" id="meaning" size="25"><br />
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationCustom03">Desired weight(kg)</label>
+        <input type="text" class="form-control" id="Dweight" placeholder="Desired weight" required>
+        <div class="invalid-feedback">
+          Please enter your Desired weight.
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="validationCustom03">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter mail" required>
+        <div class="invalid-feedback">
+          Please enter your Mail.
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+
+      <div class="col-md-5 mb-5" id="a">
+        <label for="validationCustom04">Phone</label>
+        <input type="number" class="form-control" id="phone" placeholder="Phone" required>
+        <div class="invalid-feedback">
+          Please provide a valid Phone.
+        </div>
+      </div>
+      <div class="b" id="b">
+        <input type="number" placeholder="enter your code" id="code" />
+        <input type="submit" onclick="Mycode()" />
+      </div>
+    </div>
+
+
+    <div class="form-group">
+
+      <button class="btn btn-primary" type="submit" onclick="Myfun()" id="submit">Register</button>
+    </div>
+  </div>
+
+  <section id="move">
+
+    <img class="top1" src="q3.jpg" id="q3">
+    <img class="top2" src="q4.jpg" id="q4">
+    <img class="top3" src="q1.jpg" id="q1">
+  </section>
+
+  <video autoplay muted loop id="myVideo">
+
+    <source src="Animotica_4_7_11_22_7.mp4" type="video/mp4">
+
+  </video>
+
+  <script>
+
+
+    function Myfuns() {
+
+      document.getElementById("div").style.visibility = "visible";
+      document.getElementById("move").style.visibility = "hidden";
+      document.getElementById("forms").style.visibility = "hidden";
+      //document.getElementById("forms").style.visibility="hidden";
+    }
+    function Myfunss() {
+      document.getElementById("div").style.visibility = "hidden";
+      document.getElementById("move").style.visibility = "hidden";
+      document.getElementById("forms").style.visibility = "visible";
+
+    }
+    var user=localStorage.getItem("user");
+      if (user == "User") {
+        console.log("Signed in");
+      } else {
+        console.log("signed out..")
+      }
+    
+    function Admin() {
+      var mail = document.getElementById("emails").value;
+      var phone = document.getElementById("phones").value;
+if(mail=="Admin@gmail.com" && phone=="1234567890"){
+  alert("welcome admin");
+  window.location='./admintable.html'
+}
+
+      firebase.auth().signInWithEmailAndPassword(mail, phone)
+        .then(function (result) {
+          
+          
+          firebase.database().ref("users/" + result.user.uid).once('value').then(snap => {
+            var name = snap.val().FirstName;
+            localStorage.setItem("user","User"); 
+            swal("Welcome! " + name + " get ready to see the new you", "...you will be directed to main page shortly!", "success");
+            var timer = setTimeout(function () {
+              window.location='./home.html'
+            }, 5000);
+
+          })
+        })
+
+        .catch(function (err) {
+          swal(err + "", "check", "error");
+
+        });
+
+
+    }
+
+
+    // Handle Errors here.
+
+
+
+
+
+    function Myfun() {
+
+      var firstname = document.getElementById("firstname").value;
+      var lastname = document.getElementById("lastname").value;
+      var weight = document.getElementById("weight").value;
+      var height = document.getElementById("height").value;
+      var bmi = document.getElementById("bmi").value;
+      var meanng = document.getElementById("meaning").value;
+      var Dweight = document.getElementById("Dweight").value;
+      var phone = document.getElementById("phone").value;
+      var mail = document.getElementById("email").value;
+      console.log(firstname);
+      console.log(lastname);
+      console.log(weight);
+      console.log(height);
+      console.log(meanng);
+      console.log(Dweight);
+      console.log(phone);
+      console.log(mail);
+      if (firstname == "" || lastname == "" || weight == "" || height == "" || phone == "" || mail == "") {
+        swal("Please enter the missing details", "check", "error");
+
+      }
+
+      else {
+
+
+        firebase.auth().createUserWithEmailAndPassword(mail, phone)
+          .then(function (result) {
+
+            console.log(result);
+            console.log(result.user);
+            console.log(result.user.uid);
+            // var UID=result.user.uid;
+            // localStorage.setItem("uid",UID);
+            firebase.database().ref('users/' + result.user.uid + "/").set({
+              "FirstName": firstname,
+              "LastName": lastname,
+              "weight": weight,
+              "height": height,
+              "bmi": bmi,
+              "meaning": meanng,
+              "Dweight": Dweight,
+              "phone": phone,
+              "Email": mail
+
+
+            });
+                localStorage.setItem("user","User");
+            swal("Welcome! " + firstname + " get ready to see the new you", "...you will be directed to main page shortly!", "success");
+             var timer = setTimeout(function () {
+               window.location = './home.html'
+             }, 5000);
+
+          })
+          .catch(function (err) {
+            swal(err + "", "check", "error");
+
+          });
+        // Handle Errors here.
+
+
+
+        // ...
+      }
+
+
+
+
+      localStorage.setItem("name", firstname);
+      localStorage.setItem("names", lastname);
+      localStorage.setItem("namess", mail);
+
+``
+    }
+
+
+
+
+
+
+
+
+
+
+
+    function Mycode() {
+      var firstname = document.getElementById("firstname").value;
+      var firstname = document.getElementById("firstname").value;
+      var lastname = document.getElementById("lastname").value;
+      var weight = document.getElementById("weight").value;
+      var height = document.getElementById("height").value;
+      var bmi = document.getElementById("bmi").value;
+      var meanng = document.getElementById("meaning").value;
+      var Dweight = document.getElementById("Dweight").value;
+      var phone = document.getElementById("phone").value;
+      var mail = document.getElementById("email").value;
+      var code = document.getElementById("code").value;
+      confirmationResult.confirm(code).then(function (result) {
+        // User signed in successfully.
+
+        // ...
+      }).catch(function (error) {
+        // User couldn't sign in (bad verification code?)
+        // ...
+        swal("Please enter valid code ", "...", "error");
+      });
+    }
+
+
+    function calculateBmi() {
+      var weight = document.getElementById("weight").value;
+      var height = document.getElementById("height").value;
+      if (weight > 0 && height > 0) {
+        var finalBmi = weight / (height / 100 * height / 100)
+        document.getElementById("bmi").value = finalBmi
+        if (finalBmi < 18.5) {
+          document.getElementById("meaning").value = "That you are too thin."
+        }
+        if (finalBmi > 18.5 && finalBmi < 25) {
+          document.getElementById("meaning").value = "That you are healthy."
+        }
+        if (finalBmi > 25) {
+          document.getElementById("meaning").value = "That you have overweight."
+        }
+      }
+      else {
+        alert("Please Fill in everything correctly")
+      }
+    }
+  </script>
+
+</body>
+<style type="text/css">
+
+</style>
+
+</html>

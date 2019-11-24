@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update the website</title>
+</head>
+<body>
+	<h2>Navbar:</h2><input type="text" value="HOME" id="home" class="nav"><input type="text" value="MUSCLE GAIN" id="gain" class="nav"><input type="text" value="WEIGHT LOSS" id="Loss" class="nav"><input type="text" value="FITNESS" id="fit" class="nav"><input type="text" value="DIET" id="diet" class="nav"><input type="text" value="CONTACT US" id="contact" class="nav">
+<h2>WEBSITE NAME</h2><input type="text" value="FIT &" id="websitename"><input type="text" value="FINE" id="websitenamelast">
+<h2>Button</h2><input type="text" value="Unleash the Beast" id="Button">
+<input type="submit" onclick="myfun()">
+</body>
+<script>
+function myfun()
+{
+
+	var b=document.getElementById("home").value;
+	localStorage.setItem("nav1",b);
+	var bb=localStorage.getItem("nav1");
+	 document.getElementById("home").innerHTML=bb;
+	var c=document.getElementById("gain").value;
+	localStorage.setItem("nav2",c);
+	var d=document.getElementById("Loss").value;
+	localStorage.setItem("nav3",d);
+	var e=document.getElementById("fit").value;
+	localStorage.setItem("nav4",e);
+	var f=document.getElementById("diet").value;
+	localStorage.setItem("nav5",f);
+	var g=document.getElementById("contact").value;
+	localStorage.setItem("nav6",g);
+	var a=document.getElementById("websitename").value;
+	localStorage.setItem("firstname",a);
+	var h=document.getElementById("websitenamelast").value;
+	localStorage.setItem("lastname",h);
+	var i=document.getElementById("Button").value;
+	localStorage.setItem("buttons",i);
+	
+
+}
+
+	</script>
+	<style type="text/css">
+		.nav{
+			font-size: 17px;
+		}
+
+	</style>
+</html>
